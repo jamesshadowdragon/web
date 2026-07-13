@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | LogicNest</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#111;
+            color:#fff;
+        }
+
+        header{
+            background:#1b1b1b;
+            padding:20px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+            letter-spacing:2px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:25px;
+            transition:.3s;
+        }
+
+        nav a:hover{
+            color:#c8a96a;
+        }
+
+        .container{
+            max-width:900px;
+            margin:60px auto;
+            padding:40px;
+            background:#1a1a1a;
+            border-radius:12px;
+        }
+
+        h1{
+            font-size:42px;
+            margin-bottom:15px;
+        }
+
+        p{
+            color:#ccc;
+            line-height:1.7;
+            margin-bottom:20px;
+        }
+
+        .socials{
+            margin-bottom:35px;
+        }
+
+        .socials a{
+            color:#c8a96a;
+            text-decoration:none;
+            font-weight:bold;
+        }
+
+        .socials a:hover{
+            text-decoration:underline;
+        }
+
+        form{
+            display:flex;
+            flex-direction:column;
+            gap:18px;
+        }
+
+        input,
+        textarea{
+            background:#222;
+            color:#fff;
+            border:1px solid #333;
+            padding:15px;
+            border-radius:8px;
+            font-size:16px;
+        }
+
+        textarea{
+            resize:vertical;
+            min-height:180px;
+        }
+
+        button{
+            width:180px;
+            padding:15px;
+            background:#c8a96a;
+            color:#111;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            font-weight:bold;
+            font-size:16px;
+            transition:.3s;
+        }
+
+        button:hover{
+            background:#d8bb7d;
+        }
+
+        footer{
+            margin-top:60px;
+            text-align:center;
+            padding:30px;
+            color:#888;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">LogicNest</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <h1>Get in Touch</h1>
+
+    <p>
+        Have a project, commission, or collaboration in mind?
+        Fill out the form below and I'll get back to you as soon as possible.
+    </p>
+
+    <div class="socials">
+        <p>
+            Instagram:
+            <a href="https://www.instagram.com/logicnesttt/" target="_blank" rel="noopener noreferrer">
+                @logicnesttt
+            </a>
+        </p>
+    </div>
+
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+
+        <input type="hidden" name="form-name" value="contact">
+
+        <p hidden>
+            <label>Don't fill this out:
+                <input name="bot-field">
+            </label>
+        </p>
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required>
+
+        <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required>
+
+        <input
+            type="text"
+            name="subject"
+            placeholder="Subject">
+
+        <textarea
+            name="message"
+            placeholder="Write your message..."
+            required></textarea>
+
+        <button type="submit">Send Message</button>
+
+    </form>
+
+</div>
+
+<footer>
+    © 2026 LogicNest. All Rights Reserved.
+</footer>
+
+</body>
+</html>
