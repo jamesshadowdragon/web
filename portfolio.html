@@ -284,11 +284,42 @@
 <div class="gallery-button">
     <a href="gallery.html" class="btn">Click to See Full Gallery</a>
 </div>
-
+<div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <img id="popupImage" src="" alt="Preview">
+</div>
 <footer>
     © 2026 LogicNest. All Rights Reserved.
 </footer>
+<script>
+const cards = document.querySelectorAll(".card");
+const lightbox = document.getElementById("lightbox");
+const popupImage = document.getElementById("popupImage");
+const closeBtn = document.querySelector(".close");
 
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        popupImage.src = card.querySelector("img").src;
+        lightbox.classList.add("show");
+    });
+});
+
+closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("show");
+});
+
+lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+        lightbox.classList.remove("show");
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        lightbox.classList.remove("show");
+    }
+});
+</script>
 </body>
 </html>
 
