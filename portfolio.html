@@ -1,76 +1,236 @@
 ```html
-<section class="grid">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | LogicNest</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#111;
+            color:#fff;
+        }
+
+        header{
+            background:#1b1b1b;
+            padding:20px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            border-bottom:1px solid #2a2a2a;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+            letter-spacing:2px;
+        }
+
+        nav a{
+            color:#fff;
+            text-decoration:none;
+            margin-left:25px;
+            transition:.3s;
+        }
+
+        nav a:hover{
+            color:#c8a96a;
+        }
+
+        .hero{
+            text-align:center;
+            padding:80px 20px 50px;
+        }
+
+        .hero h1{
+            font-size:48px;
+            margin-bottom:20px;
+        }
+
+        .hero p{
+            max-width:750px;
+            margin:auto;
+            color:#bdbdbd;
+            line-height:1.8;
+            font-size:18px;
+        }
+
+        .gallery{
+            width:90%;
+            max-width:1200px;
+            margin:50px auto;
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:30px;
+        }
+
+        .card{
+            background:#1a1a1a;
+            border:1px solid #2d2d2d;
+            border-radius:12px;
+            overflow:hidden;
+            transition:.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+            border-color:#c8a96a;
+        }
+
+        .card img{
+            width:100%;
+            height:360px;
+            object-fit:cover;
+            display:block;
+        }
+
+        .info{
+            padding:20px;
+        }
+
+        .info h2{
+            margin-bottom:10px;
+        }
+
+        .info p{
+            color:#bdbdbd;
+            line-height:1.6;
+        }
+
+        .gallery-button{
+            text-align:center;
+            margin:50px 0 80px;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:15px 35px;
+            background:#c8a96a;
+            color:#111;
+            text-decoration:none;
+            font-weight:bold;
+            border-radius:10px;
+            transition:.3s;
+        }
+
+        .btn:hover{
+            background:#d8bb7d;
+            transform:translateY(-3px);
+        }
+
+        footer{
+            border-top:1px solid #222;
+            text-align:center;
+            padding:30px;
+            color:#777;
+        }
+
+        @media(max-width:950px){
+            .gallery{
+                grid-template-columns:repeat(2,1fr);
+            }
+        }
+
+        @media(max-width:700px){
+
+            header{
+                flex-direction:column;
+                gap:15px;
+            }
+
+            nav a{
+                margin:0 10px;
+            }
+
+            .gallery{
+                grid-template-columns:1fr;
+            }
+
+            .hero h1{
+                font-size:38px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+<header>
+
+    <div class="logo">LogicNest</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+</header>
+
+<section class="hero">
+
+    <h1>Roblox Clothing Portfolio</h1>
+
+    <p>
+        I'm <strong>LogicNest</strong>, a Roblox clothing designer creating premium shirts, pants,
+        and outfit collections. Below are three featured designs from my latest work. Visit the
+        full gallery to explore more of my clothing designs.
+    </p>
+
+</section>
+
+<section class="gallery">
 
     <div class="card">
-        <img src="art1.jpg" alt="Artwork 1">
+        <img src="art1.jpg" alt="Roblox Clothing Design 1">
 
-        <div class="content">
-            <h2>Artwork 01</h2>
-            <p>Professional artwork created by LogicNest.</p>
+        <div class="info">
+            <h2>Featured Design #1</h2>
+            <p>Modern Roblox clothing designed with attention to quality and detail.</p>
         </div>
     </div>
 
     <div class="card">
-        <img src="art2.jpg" alt="Artwork 2">
+        <img src="art2.jpg" alt="Roblox Clothing Design 2">
 
-        <div class="content">
-            <h2>Artwork 02</h2>
-            <p>Creative design and visual composition by LogicNest.</p>
+        <div class="info">
+            <h2>Featured Design #2</h2>
+            <p>Clean and stylish apparel created for Roblox avatars.</p>
         </div>
     </div>
 
     <div class="card">
-        <img src="art3.jpg" alt="Artwork 3">
+        <img src="art3.jpg" alt="Roblox Clothing Design 3">
 
-        <div class="content">
-            <h2>Artwork 03</h2>
-            <p>A featured piece from the LogicNest portfolio.</p>
+        <div class="info">
+            <h2>Featured Design #3</h2>
+            <p>A featured clothing design from the LogicNest collection.</p>
         </div>
     </div>
 
 </section>
 
-<style>
-.grid{
-    width:90%;
-    max-width:1200px;
-    margin:40px auto 80px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:25px;
-}
+<div class="gallery-button">
+    <a href="gallery.html" class="btn">Click to See Full Gallery</a>
+</div>
 
-.card{
-    background:#1a1a1a;
-    border:1px solid #2a2a2a;
-    border-radius:12px;
-    overflow:hidden;
-    transition:.3s;
-}
+<footer>
+    © 2026 LogicNest. All Rights Reserved.
+</footer>
 
-.card:hover{
-    transform:translateY(-8px);
-    border-color:#c8a96a;
-}
-
-.card img{
-    width:100%;
-    height:320px;
-    object-fit:cover;
-    display:block;
-}
-
-.content{
-    padding:20px;
-}
-
-.content h2{
-    margin-bottom:10px;
-}
-
-.content p{
-    color:#bbb;
-    line-height:1.6;
-}
-</style>
+</body>
+</html>
 ```
