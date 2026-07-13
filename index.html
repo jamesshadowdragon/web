@@ -1,266 +1,235 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | LogicNest</title>
 
-<title>logicnest • Gallery</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+        body{
+            background:#111;
+            color:#fff;
+        }
 
-<style>
+        header{
+            background:#1b1b1b;
+            padding:20px 8%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            border-bottom:1px solid #2a2a2a;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+            letter-spacing:2px;
+        }
 
-body{
-background:#f5f5f5;
-font-family:Inter,sans-serif;
-color:#222;
-}
+        nav a{
+            color:#fff;
+            text-decoration:none;
+            margin-left:25px;
+            transition:.3s;
+        }
 
-header{
-background:white;
-padding:22px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid #ececec;
-position:sticky;
-top:0;
-z-index:100;
-}
+        nav a:hover{
+            color:#c8a96a;
+        }
 
-.logo{
-font-family:"Playfair Display",serif;
-font-size:30px;
-font-weight:bold;
-}
+        .hero{
+            text-align:center;
+            padding:80px 20px 50px;
+        }
 
-nav{
-display:flex;
-gap:35px;
-}
+        .hero h1{
+            font-size:48px;
+            margin-bottom:20px;
+        }
 
-nav a{
-text-decoration:none;
-color:#444;
-font-weight:500;
-transition:.2s;
-}
+        .hero p{
+            max-width:750px;
+            margin:auto;
+            color:#bdbdbd;
+            line-height:1.8;
+            font-size:18px;
+        }
 
-nav a:hover{
-color:black;
-}
+        .gallery{
+            width:90%;
+            max-width:1200px;
+            margin:50px auto;
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:30px;
+        }
 
-.hero{
-padding:90px 20px;
-text-align:center;
-max-width:900px;
-margin:auto;
-}
+        .card{
+            background:#1a1a1a;
+            border:1px solid #2d2d2d;
+            border-radius:12px;
+            overflow:hidden;
+            transition:.3s;
+        }
 
-.hero h1{
-font-family:"Playfair Display",serif;
-font-size:56px;
-margin-bottom:18px;
-}
+        .card:hover{
+            transform:translateY(-8px);
+            border-color:#c8a96a;
+        }
 
-.hero p{
-font-size:18px;
-line-height:1.8;
-color:#666;
-max-width:650px;
-margin:auto;
-}
+        .card img{
+            width:100%;
+            height:360px;
+            object-fit:cover;
+            display:block;
+        }
 
-.gallery{
-width:88%;
-margin:50px auto 90px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:28px;
-}
+        .info{
+            padding:20px;
+        }
 
-.card{
-background:white;
-border-radius:14px;
-overflow:hidden;
-box-shadow:0 10px 35px rgba(0,0,0,.05);
-transition:.25s;
-cursor:pointer;
-}
+        .info h2{
+            margin-bottom:10px;
+        }
 
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 20px 40px rgba(0,0,0,.12);
-}
+        .info p{
+            color:#bdbdbd;
+            line-height:1.6;
+        }
 
-.card img{
-width:100%;
-height:250px;
-object-fit:cover;
-display:block;
-}
+        .gallery-button{
+            text-align:center;
+            margin:50px 0 80px;
+        }
 
-.info{
-padding:18px;
-}
+        .btn{
+            display:inline-block;
+            padding:15px 35px;
+            background:#c8a96a;
+            color:#111;
+            text-decoration:none;
+            font-weight:bold;
+            border-radius:10px;
+            transition:.3s;
+        }
 
-.info h3{
-margin-bottom:6px;
-font-size:18px;
-}
+        .btn:hover{
+            background:#d8bb7d;
+            transform:translateY(-3px);
+        }
 
-.info p{
-font-size:14px;
-color:#777;
-}
+        footer{
+            border-top:1px solid #222;
+            text-align:center;
+            padding:30px;
+            color:#777;
+        }
 
-footer{
-padding:50px;
-text-align:center;
-background:white;
-border-top:1px solid #ececec;
-color:#777;
-}
+        @media(max-width:950px){
+            .gallery{
+                grid-template-columns:repeat(2,1fr);
+            }
+        }
 
-@media(max-width:1100px){
+        @media(max-width:700px){
 
-.gallery{
-grid-template-columns:repeat(2,1fr);
-}
+            header{
+                flex-direction:column;
+                gap:15px;
+            }
 
-}
+            nav a{
+                margin:0 10px;
+            }
 
-@media(max-width:700px){
+            .gallery{
+                grid-template-columns:1fr;
+            }
 
-.hero h1{
-font-size:42px;
-}
+            .hero h1{
+                font-size:38px;
+            }
 
-.gallery{
-grid-template-columns:1fr;
-}
-
-header{
-padding:18px;
-flex-direction:column;
-gap:15px;
-}
-
-}
-
-</style>
-
+        }
+    </style>
 </head>
 <body>
 
 <header>
 
-<div class="logo">Logicnest</div>
+    <div class="logo">LogicNest</div>
 
-<nav>
+    <nav>
     <a href="gallery.html">Gallery</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
 </nav>
 
+</header>
+
 <section class="hero">
 
-<h1>logicnest apparrel</h1>
+    <h1>Roblox Clothing Portfolio</h1>
 
-<p>
-A curated collection of my cloths design.
-</p>
+    <p>
+        I'm <strong>LogicNest</strong>, a Roblox clothing designer creating premium shirts, pants,
+        and outfit collections. Below are three featured designs from my latest work. Visit the
+        full gallery to explore more of my clothing designs.
+    </p>
 
 </section>
 
 <section class="gallery">
 
-<div class="card">
-<img src="art1.jpg">
-<div class="info">
-<h3>Artwork 01</h3>
-<p>clothes design</p>
-</div>
-</div>
+    <div class="card">
+        <img src="art1.jpg" alt="Roblox Clothing Design 1">
 
-<div class="card">
-<img src="art2.jpg">
-<div class="info">
-<h3>Artwork 02</h3>
-<p>clothes design</p>
-</div>
-</div>
+        <div class="info">
+            <h2>Featured Design #1</h2>
+            <p>Modern Roblox clothing designed with attention to quality and detail.</p>
+        </div>
+    </div>
 
-<div class="card">
-<img src="art3.jpg">
-<div class="info">
-<h3>Artwork 03</h3>
-<p>clothes design</p>
-</div>
-</div>
+    <div class="card">
+        <img src="art2.jpg" alt="Roblox Clothing Design 2">
 
-<div class="card">
-<img src="art4.jpg">
-<div class="info">
-<h3>Artwork 04</h3>
-<p>clothes design</p>
-</div>
-</div>
+        <div class="info">
+            <h2>Featured Design #2</h2>
+            <p>Clean and stylish apparel created for Roblox avatars.</p>
+        </div>
+    </div>
 
-<div class="card">
-<img src="art5.jpg">
-<div class="info">
-<h3>Artwork 05</h3>
-<p>clothes design</p>
-</div>
-</div>
+    <div class="card">
+        <img src="art3.jpg" alt="Roblox Clothing Design 3">
 
-<div class="card">
-<img src="art6.jpg">
-<div class="info">
-<h3>Artwork 06</h3>
-<p>clothes design</p>
-</div>
-</div>
-
-<div class="card">
-<img src="art7.jpg">
-<div class="info">
-<h3>Artwork 07</h3>
-<p>clothes design</p>
-</div>
-</div>
-
-<div class="card">
-<img src="art8.jpg">
-<div class="info">
-<h3>Artwork 08</h3>
-<p>clothes design</p>
-</div>
-</div>
+        <div class="info">
+            <h2>Featured Design #3</h2>
+            <p>A featured clothing design from the LogicNest collection.</p>
+        </div>
+    </div>
 
 </section>
 
+<div class="gallery-button">
+    <a href="gallery.html" class="btn">Click to See Full Gallery</a>
+</div>
+
 <footer>
-
-<h2 style="margin-bottom:10px;font-family:'Playfair Display';">Logicnest</h2>
-
-<p>Professional Roblox Clothes Designer & GFX Artist</p>
-
-<br>
-
-<p>© 2026 logicnest. All Rights Reserved.</p>
-
+    © 2026 LogicNest. All Rights Reserved.
 </footer>
 
 </body>
 </html>
+```
