@@ -74,26 +74,88 @@
             grid-template-columns:repeat(3,1fr);
             gap:30px;
         }
-
         .card{
-            background:#1a1a1a;
-            border:1px solid #2d2d2d;
-            border-radius:12px;
-            overflow:hidden;
-            transition:.3s;
-        }
+    background:#1a1a1a;
+    border:1px solid #2d2d2d;
+    border-radius:12px;
+    overflow:hidden;
+    transition:.3s;
+    cursor:pointer;
+}
 
-        .card:hover{
-            transform:translateY(-8px);
-            border-color:#c8a96a;
-        }
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#c8a96a;
+}
 
-        .card img{
-            width:100%;
-            height:360px;
-            object-fit:cover;
-            display:block;
-        }
+.card img{
+    width:100%;
+    aspect-ratio:308 / 751;
+    height:auto;
+    object-fit:contain;
+    background:#111;
+}
+
+
+
+.lightbox{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.9);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:9999;
+}
+
+.lightbox.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.lightbox img{
+    max-width:90vw;
+    max-height:90vh;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    border-radius:15px;
+    box-shadow:0 0 35px rgba(0,0,0,.6);
+    transform:scale(.8);
+    transition:.3s;
+}
+
+.lightbox.show img{
+    transform:scale(1);
+}
+
+.close{
+    position:absolute;
+    top:20px;
+    right:35px;
+    font-size:45px;
+    color:white;
+    cursor:pointer;
+    user-select:none;
+}
+
+.close:hover{
+    color:#c8a96a;
+}
+
+@media(max-width:500px){
+    .lightbox img{
+        width:90vw;
+        height:auto;
+        max-height:90vh;
+    }
+}
 
         .info{
             padding:20px;
@@ -225,11 +287,41 @@
 <div class="gallery-button">
     <a href="gallery.html" class="btn">Click to See Full Gallery</a>
 </div>
-
+<div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <img id="popupImage" src="" alt="Preview">
+</div>
 <footer>
     © 2026 LogicNest. All Rights Reserved.
 </footer>
+<script>
+const cards = document.querySelectorAll(".card");
+const lightbox = document.getElementById("lightbox");
+const popupImage = document.getElementById("popupImage");
+const closeBtn = document.querySelector(".close");
 
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        popupImage.src = card.querySelector("img").src;
+        lightbox.classList.add("show");
+    });
+});
+
+closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("show");
+});
+
+lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+        lightbox.classList.remove("show");
+    }
+});
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        lightbox.classList.remove("show");
+    }
+});
+</script>
 </body>
 </html>
-
